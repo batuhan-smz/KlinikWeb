@@ -1,12 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 
-from django.views.generic import TemplateView
-
 from Klinik_Website.models import Menu, SliderImage, About, Services, ServicePage, ContactInfo
 
 
 # Create your views here.
-# myapp/views.py
 
 def home(request):
     menu = Menu.objects.all()
