@@ -69,8 +69,12 @@ WSGI_APPLICATION = 'KlinikWebsite.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'klinikdb.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'verceldb',
+        'USER': 'default',
+        'PASSWORD': 'uUbG2JvL6dOT',
+        'HOST': 'ep-plain-violet-a4whfy4o-pooler.us-east-1.aws.neon.tech',
+        'PORT': '5432',
     }
 }
 

@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
+from Klinik_Website.forms import RandevuForm
 from Klinik_Website.models import Menu, SliderImage, About, Services, ServicePage, ContactInfo
 
 
@@ -39,3 +40,16 @@ def service_page_detail(request, slug):
     page = get_object_or_404(ServicePage, slug=slug)
     return render(request, 'service_page_detail.html', {'page': page})
 
+def randevu_al(request):
+    if request.method == 'POST':
+        form = RandevuForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('randevu_basarili')
+    else:
+        form = RandevuForm()
+    return render(request, 'randevu_al.html', {'form': form})
+
+
+def randevu_basarili(request):
+    return None

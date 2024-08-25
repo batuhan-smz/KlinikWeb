@@ -45,12 +45,32 @@ class Explanation(models.Model):
         return self.text[:50]  # İlk 50 karakteri göster
 
 
-class WorkingHours(models.Model):
-    weekday_hours = models.CharField(max_length=50)
-    weekend_hours = models.CharField(max_length=50)
+class CalismaSaati(models.Model):
+    gun = models.CharField(max_length=10)  # Örneğin: 'Pazartesi'
+    baslangic_saati = models.TimeField()
+    bitis_saati = models.TimeField()
+    ogle_arasi_baslangic = models.TimeField()
+    ogle_arasi_bitis = models.TimeField()
 
     def __str__(self):
-        return f"Hafta İçi: {self.weekday_hours}, Hafta Sonu: {self.weekend_hours}"
+        return f"{self.gun}: {self.baslangic_saati} - {self.bitis_saati}"
+class Hasta(models.Model):
+    ad = models.CharField(max_length=100)
+    soyad = models.CharField(max_length=100)
+    telefon = models.CharField(max_length=15)
+    e_posta = models.EmailField()
+
+    def __str__(self):
+        return f"{self.ad} {self.soyad}"
+
+class Randevu(models.Model):
+    hasta = models.ForeignKey(Hasta, on_delete=models.CASCADE)
+    tarih = models.DateField()
+    saat = models.TimeField()
+    doktor = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.tarih} - {self.saat} - {self.hasta}"
 
 
 class Menu(models.Model):

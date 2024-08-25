@@ -16,5 +16,12 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="verceldb@ep-plain-violet-a4whfy4o-pooler.us-east-1.aws.neon.tech" uuid="d8d5e1ea-4156-47e1-9714-95e2538e4dbf">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ep-plain-violet-a4whfy4o-pooler.us-east-1.aws.neon.tech:5432/verceldb</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
