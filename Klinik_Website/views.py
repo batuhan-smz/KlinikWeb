@@ -38,3 +38,4 @@ def contact(request):
 def service_page_detail(request, slug):
     page = get_object_or_404(ServicePage, slug=slug)
     return render(request, 'service_page_detail.html', {'page': page})
+
