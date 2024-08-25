@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-
+import Klinik_Website
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-r#&e#jxf3jah&^sedlqyif=_1%&4#)$f^1e53pqxuy-xn3vb*7
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -50,6 +50,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Klinik_Website.context_processors.service_pages',
             ],
         },
     },

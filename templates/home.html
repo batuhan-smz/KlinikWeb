@@ -1,61 +1,6 @@
+{% extends "layout.html" %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klinik Tanıtım</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="logo-container">
-            <a class="anchor-logo" id="anchor-logo" href="#home">
-                <img class="klinik-logo" src="{% static 'images/logo.png' %}" alt="Logo"></img>
-            </a>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <ul class="nav-links">
-                        {% for item in menü %}
-                            <li><a href="{{ item.url }}">{{ item.name }}</a></li>
-                        {% endfor %}
-                        <li>
-                            <div class="">
-                                <ul class="horizontal-list-flags"><li class="">
-                            <a lang="tr-TR" hreflang="tr-TR" href="">
-                                <span class=""><img src="data:image/svg+xml;utf8,%3Csvg width='21' height='15'
-                                xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='a'%3E%3Cstop stop-color='%23FFF'
-                                offset='0%'/%3E%3Cstop stop-color='%23F0F0F0' offset='100%'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%'
-                                id='b'%3E%3Cstop stop-color='%23E92434' offset='0%'/%3E%3Cstop stop-color='%23E11324' offset='100%'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg
-                                fill='none' fill-rule='evenodd'%3E%3Cpath fill='url(%23a)' d='M0 0h21v15H0z'/%3E%3Cpath fill='url(%23b)' d='M0 0h21v15H0z'/%3E%3Cpath
-                                d='M13.052 4.737A3.907 3.907 0 0010.75 4C8.679 4 7 5.567 7 7.5S8.679 11 10.75 11c.868 0 1.667-.275 2.302-.737a4.5 4.5 0 110-5.526zm1.214 3.34l-.919
-                                1.113.063-1.442-1.343-.53 1.39-.386.09-1.441.796 1.204 1.398-.361-.898 1.13.775 1.217-1.352-.505z' fill='url(%23a)'/%3E%3C/g%3E%3C/svg%3E" alt="Türkçe">
-                                </span>
-                            </a></li><li class="">
-                                <a lang="en-GB" hreflang="en-GB" href="">
-                                    <span class=""><img src="data:image/svg+xml;utf8,%3Csvg width='21' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient
-                                        x1='50%' y1='0%' x2='50%' y2='100%' id='a'%3E%3Cstop stop-color='%23FFF' offset='0%'/%3E%3Cstop stop-color='%23F0F0F0'
-                                        offset='100%'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='b'%3E%3Cstop stop-color='%230A17A7'
-                                        offset='0%'/%3E%3Cstop stop-color='%23030E88' offset='100%'/%3E%3C/linearGradient%3E%3ClinearGradient x1='50%' y1='0%' x2='50%' y2='100%'
-                                        id='c'%3E%3Cstop stop-color='%23E6273E' offset='0%'/%3E%3Cstop stop-color='%23CF152B' offset='100%'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg
-                                        fill='none' fill-rule='evenodd'%3E%3Cpath fill='url(%23a)' d='M0 0h21v15H0z'/%3E%3Cpath fill='url(%23b)' d='M-.002 0h21v15h-21z'/%3E%3Cpath
-                                        d='M5.003 10H-.002V5h5.005L-2.082.22l1.118-1.657 8.962 6.045V-1h5v5.608l8.962-6.045L23.078.22 15.993 5h5.005v5h-5.005l7.085 4.78-1.118
-                                        1.657-8.962-6.045V16h-5v-5.608l-8.962 6.045-1.118-1.658L5.003 10z' fill='url(%23a)'/%3E%3Cpath d='M14.136
-                                        4.958l9.5-6.25a.25.25 0 00-.275-.417l-9.5 6.25a.25.25 0 10.275.417zm.732 5.522l8.515 5.74a.25.25 0 10.28-.415l-8.516-5.74a.25.25
-                                        0 00-.279.415zM6.142 4.526L-2.74-1.461a.25.25 0 00-.28.415L5.863 4.94a.25.25 0 00.279-.414zm.685 5.469l-9.845 6.53a.25.25 0
-                                        10.276.416l9.846-6.529a.25.25 0 00-.277-.417z' fill='%23DB1F35' fill-rule='nonzero'/%3E%3Cpath fill='url(%23c)' d='M-.002
-                                        9h9v6h3V9h9V6h-9V0h-3v6h-9z'/%3E%3C/g%3E%3C/svg%3E" alt="English"></span></a></li></ul>
-                            </div>
-                    </li>
-                    </ul>
-                </ul>
-                <button class="nav-toggle" aria-label="Menüyü aç">☰</button>
-            </nav>
-        </div>
-    </header>
+{% block content %}
     <section id="home" class="hero">
         <div class="container">
             <div class="wrapper">
@@ -101,21 +46,71 @@
     </section>
     <section id="services" class="services">
         <div class="container">
-            <h2>Hizmetler</h2>
-            <p>Sunduğumuz hizmetler hakkında bilgi buraya gelecek.</p>
+        <ul class="services-list">
+            {% for item in services %}
+                <li>
+                <div class="service-card">
+                <img src="{{ item.image.url }}" alt="görsel">
+                <h3>{{ item.name}}</h3>
+                    <p>{{ item.content }}</p>
+                </div>
+                </li>
+            {% endfor %}
+        </ul>
+        </div>
+    </section>
+    <section id="banner" class="banner">
+        <div class="container">
+            <div class="banner-background"></div>
+            <div class="banner-content">
+                <div class="banner-content-in">
+                    <div class="banner-content-in-icon"><img src="{% static 'images/D85-tecrube-icon.png' %}"></div>
+                    <div class="banner-content-in-text"> <h2 class="title">16 Yılı Aşkın Tecrübe</h2><p class="icon-box-description">2009 yılından beri estetik ve plastik cerrahlığı alanında deneyim.</p></div>
+                </div>
+                <div class="banner-content-in">
+                    <div class="banner-content-in-icon"><img src="{% static 'images/technology-icon.png' %}"></div>
+                    <div class="banner-content-in-text"><h2 class="title">Modern Teknoloji</h2><p class="icon-box-description">Tüm hastalarım için son teknolojiyi kullanıyorum.</p></div>
+                </div>
+                <div class="banner-content-in">
+                    <div class="banner-content-in-icon"><img src="{% static 'images/beauty-icon.png' %}"></div>
+                    <div class="banner-content-in-text"><h2 class="title">Doğallık ve Güzellik</h2><p class="icon-box-description">Yapılan cerrahi işlemler sonunda doğal görünüm ile genç görünün.</p></div>
+                </div>
+            </div>
         </div>
     </section>
     <section id="contact" class="contact">
         <div class="container">
-            <h2>İletişim</h2>
-            <p>İletişim bilgileri buraya gelecek.</p>
+            <div class="contact-content">
+                <div class="contact-background"></div>
+                <div class="contact-in">
+                    <div class="contact-in-header">
+                        <h2>İletişim</h2>
+                    </div>
+                    <div class="contact-in-info">
+                        <ul>
+                            <li>
+                                <span class="contact-icons"><svg aria-hidden="true" class="e-font-icon-svg e-far-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg></span>
+                                <a class="anchor-logo" href="mailto:{{ contactemail }}"><span>{{ contactemail }}</span></a>
+                            </li>
+                            <li>
+                                <span class="contact-icons"><img class="contact-icons" src="{% static 'images/contact-icon.png' %}"></span>
+                                <a class="anchor-logo" href="tel:{{ contactphone }}"><span>{{ contactphone }}</span></a>
+                            </li>
+                            <li>
+                                <span class="contact-icons"><img class="contact-icons" src="{% static 'images/konum-icon.png' %}"></span>
+                                <span>{{ contactadress }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
         </div>
     </section>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Klinik Adı. Tüm hakları saklıdır.</p>
-        </div>
-    </footer>
     <script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+    <script>function toggleMenu() {
+            var navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("open");
+        }</script>
+{% endblock %}

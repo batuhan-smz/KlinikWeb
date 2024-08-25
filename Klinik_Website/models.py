@@ -56,7 +56,29 @@ class WorkingHours(models.Model):
 class Menu(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=15)
-    url = models.CharField(max_length=100,default="/home")
+    url = models.CharField(max_length=100,default="#")
+    submenuname = models.CharField(max_length=15, blank=True, null=True)
+    submenuurl = models.CharField(max_length=100,default="#")
+    submenucontent = models.TextField(max_length=2000, blank=True, null=True)
 
     def __str__(self):
         return f"{self.name} ({self.url})"
+
+class Services(models.Model):
+    id = models.AutoField(primary_key=True)
+    image = models.ImageField(upload_to='images/',null=False)
+    name = models.CharField(max_length=15, blank=True, null=True)
+    url = models.CharField(max_length=100,default="#")
+    content = models.TextField(max_length=500, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.name} ({self.url})"
+
+class ServicePage(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='service_images/')
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        return self.title
