@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-
+from django.core.management.utils import get_random_secret_key
 import Klinik_Website
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -9,11 +9,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-SECRET_KEY = 'django-insecure-r#&e#jxf3jah&^sedlqyif=_1%&4#)$f^1e53pqxuy-xn3vb*7'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', get_random_secret_key())
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+
+#SECURE_HSTS_SECONDS = 3600  # 1 saat
+#SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#SECURE_HSTS_PRELOAD = True
+#SECURE_SSL_REDIRECT = True
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
 
 # Application definition
 
