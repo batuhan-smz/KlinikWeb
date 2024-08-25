@@ -47,10 +47,10 @@ class Explanation(models.Model):
 
 class CalismaSaati(models.Model):
     gun = models.CharField(max_length=10)  # Örneğin: 'Pazartesi'
-    baslangic_saati = models.TimeField()
-    bitis_saati = models.TimeField()
-    ogle_arasi_baslangic = models.TimeField()
-    ogle_arasi_bitis = models.TimeField()
+    baslangic_saati = models.TimeField(null=True, blank=True)
+    bitis_saati = models.TimeField(null=True, blank=True)
+    ogle_arasi_baslangic = models.TimeField(null=True, blank=True)
+    ogle_arasi_bitis = models.TimeField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.gun}: {self.baslangic_saati} - {self.bitis_saati}"
