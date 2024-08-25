@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klinik Tanıtım</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -21,7 +24,7 @@
             <ul id="nav-links">
                 <li><a href="/">Anasayfa</a></li>
                 <li><a href="#about">Hakkımızda</a></li>
-                <li><a href="#services">Hizmetler</a>
+                <li>Hizmetler
                     <ul>
                         {% for page in service_pages %}
                             <li><a href="{% url 'service_page_detail' slug=page.slug %}">{{ page.title }}</a></li>
