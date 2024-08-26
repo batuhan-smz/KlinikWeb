@@ -78,11 +78,14 @@ nav ul {
 }
 
 nav ul li {
-    display: block;
     color: #000000;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 nav ul li a {
@@ -99,7 +102,7 @@ nav ul li a:hover {
 /* Hizmetler menüsü için alt menü stili */
 nav ul li ul {
     display: none;
-    position: relative;
+    position: absolute;
     background-color: #a66b2e36;
     border-radius: 5px;
     min-width: 160px;
@@ -182,6 +185,7 @@ nav ul li ul li a:hover {
         margin: 2rem !important;
         border: dashed;
         border-color: #d9a00029;
+        background: none !important;
     }
 }
 .nav-links li{
@@ -320,7 +324,7 @@ footer {
 .wrapper {
     align-items: center;
     display: flex;
-    width: 100%;
+    width: 60%;
     height: 100%;
 }
 
@@ -364,6 +368,10 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: url(https://st2.depositphotos.com/1001705/7807/v/450/depositphotos_78070296-stock-illustration-vector-square-simple-frame-for.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .content-background{
     width: 100%;
@@ -394,6 +402,8 @@ footer {
     position: relative;
     font-family: Calibri;
     font-weight: bold;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 
@@ -535,4 +545,10 @@ footer {
 .contact-in-info ul li span{
     display: flex;
     align-items: center;
+}
+.randevu-al{
+    padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

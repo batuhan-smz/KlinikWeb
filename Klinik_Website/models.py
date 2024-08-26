@@ -54,23 +54,17 @@ class CalismaSaati(models.Model):
 
     def __str__(self):
         return f"{self.gun}: {self.baslangic_saati} - {self.bitis_saati}"
-class Hasta(models.Model):
-    ad = models.CharField(max_length=100)
-    soyad = models.CharField(max_length=100)
-    telefon = models.CharField(max_length=15)
-    e_posta = models.EmailField()
-
-    def __str__(self):
-        return f"{self.ad} {self.soyad}"
 
 class Randevu(models.Model):
-    hasta = models.ForeignKey(Hasta, on_delete=models.CASCADE)
-    tarih = models.DateField()
+    ad = models.CharField(max_length=30,null=False,blank=False,default=None)
+    soyad = models.CharField(max_length=20,null=False,blank=False,default=None)
+    telefon = models.CharField(max_length=11,primary_key=True,default=None)
+    e_posta = models.EmailField(null=True, blank=True,default=None)
+    tarih = models.DateTimeField()
     saat = models.TimeField()
-    doktor = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.tarih} - {self.saat} - {self.hasta}"
+        return f"{self.tarih} - {self.saat}"
 
 
 class Menu(models.Model):

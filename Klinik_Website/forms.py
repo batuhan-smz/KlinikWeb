@@ -8,12 +8,19 @@ class RandevuForm(forms.ModelForm):
 
     class Meta:
         model = Randevu
-        fields = ['hasta', 'tarih', 'saat', 'doktor']
+        fields = ['ad','soyad','telefon','e_posta', 'tarih', 'saat']
+        widgets = {
+            'tarih': forms.DateInput(attrs={'type': 'date'}),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Kullanıcının seçtiği tarihe göre ilgili günün çalışma saatini alıyoruz.
-        gun_adi = self.instance.tarih.strftime('%A')
+        if self.instance.tarih:
+            gun_adi = self.instance.tarih.strftime('%A')
+        else:
+            gun_adi = 'Monday'
+
         calisma_saati = CalismaSaati.objects.filter(gun=gun_adi).first()
 
         if not calisma_saati:

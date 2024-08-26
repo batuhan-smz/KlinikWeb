@@ -52,4 +52,4 @@ def randevu_al(request):
 
 
 def randevu_basarili(request):
-    return None
+    return render(request, 'randevu_basarili.html')

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SliderImage, DoctorInfo, ContactInfo, Explanation, Menu, About, Services, ServicePage, Randevu, Hasta, CalismaSaati
+from .models import SliderImage, DoctorInfo, ContactInfo, Explanation, Menu, About, Services, ServicePage, Randevu, CalismaSaati
 
 admin.site.register(SliderImage)
 admin.site.register(DoctorInfo)
@@ -15,14 +15,10 @@ class ServicePageAdmin(admin.ModelAdmin):
 
 @admin.register(Randevu)
 class RandevuAdmin(admin.ModelAdmin):
-    list_display = ('hasta', 'tarih', 'saat', 'doktor')
-    list_filter = ('tarih', 'doktor')
-    search_fields = ('hasta__ad', 'hasta__soyad', 'doktor')
+    list_display = ('ad','soyad','telefon','e_posta', 'tarih', 'saat')
+    list_filter = ('tarih','saat')
+    search_fields = ('hasta__ad', 'hasta__soyad')
 
-@admin.register(Hasta)
-class HastaAdmin(admin.ModelAdmin):
-    list_display = ('ad', 'soyad', 'telefon', 'e_posta')
-    search_fields = ('ad', 'soyad', 'telefon', 'e_posta')
 
 @admin.register(CalismaSaati)
 class CalismaSaatiAdmin(admin.ModelAdmin):
