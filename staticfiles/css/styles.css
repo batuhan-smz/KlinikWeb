@@ -134,7 +134,7 @@ nav ul li ul li a:hover {
     cursor: pointer;
         }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 768px) {
     .nav-ul {
         display: none;
         flex-direction: column;
@@ -176,6 +176,7 @@ nav ul li ul li a:hover {
     }
 
     .wrapper{
+        width: 100% !important;
         align-items: center !important;
         flex-direction: column;
     }
@@ -186,6 +187,26 @@ nav ul li ul li a:hover {
         border: dashed;
         border-color: #d9a00029;
         background: none !important;
+    }
+    .banner-content{
+        align-items: center; !important;
+        flex-direction: column;
+    }
+    .banner-content-in{
+        width: 100% !important;
+    }
+    .services-list{
+        position: relative!important;
+        right: 20px !important;
+    }
+    .about-section{
+        padding: 0 !important;
+    }
+    .contact-in-info{
+        left: 0 !important;
+    }
+    .contact-content{
+        background-position: center!important;
     }
 }
 .nav-links li{
