@@ -2,10 +2,42 @@
 
 {% block content %}
     <h2 class="randevu-al">Randevu Al</h2>
-    <form method="post">
+    <div class="container">
+    <div class="form-background"></div>
+    <form class="form" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Randevu Al</button>
     </form>
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-in">
+                    <div class="contact-in-header">
+                        <h2>İletişim</h2>
+                    </div>
+                    <div class="contact-in-info">
+                        <ul class="padding0">
+                            <li>
+                                <span class="contact-icons"><img class="contact-icons" src="{% static 'images/mail-icon.png' %}"></span>
+                                <a class="anchor-logo" href="mailto:{{ contactemail }}"><span>{{ contactemail }}</span></a>
+                            </li>
+                            <li>
+                                <span class="contact-icons"><img class="contact-icons" src="{% static 'images/contact-icon.png' %}"></span>
+                                <a class="anchor-logo" href="tel:{{ contactphone }}"><span>{{ contactphone }}</span></a>
+                            </li>
+                            <li>
+                                <span class="contact-icons"><img class="contact-icons" src="{% static 'images/konum-icon.png' %}"></span>
+                                <span>{{ contactadress }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+    </div>
 {% endblock %}
 

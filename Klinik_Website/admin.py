@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import SliderImage, DoctorInfo, ContactInfo, Explanation, Menu, About, Services, ServicePage, Randevu, \
-    CalismaSaati, SosyalMedya
+    CalismaSaati, SosyalMedya, Contact
 
 admin.site.register(SliderImage)
 admin.site.register(DoctorInfo)
@@ -10,6 +10,10 @@ admin.site.register(Menu)
 admin.site.register(About)
 admin.site.register(SosyalMedya)
 admin.site.register(Services)
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone', 'message')
 @admin.register(ServicePage)
 class ServicePageAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}

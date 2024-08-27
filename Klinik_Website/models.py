@@ -105,3 +105,14 @@ class SosyalMedya(models.Model):
     youtube = models.CharField(max_length=50,null=True,blank=True)
     def __str__(self):
         return self.instagram
+
+
+class Contact(models.Model):
+    phone = models.CharField(primary_key=True,max_length=11)
+    email = models.EmailField()
+    name = models.CharField(max_length=50)
+    konu = models.CharField(max_length=50)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

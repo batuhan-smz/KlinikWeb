@@ -1,7 +1,8 @@
 from django import forms
 
 from .helpers import randevu_saatleri
-from .models import Randevu, CalismaSaati
+from .models import Randevu, CalismaSaati, Contact
+
 
 class RandevuForm(forms.ModelForm):
     saat = forms.ChoiceField()
@@ -30,3 +31,9 @@ class RandevuForm(forms.ModelForm):
             self.fields['saat'].choices = [
                 (saat, saat.strftime('%H:%M')) for saat in randevu_saatleri(calisma_saati)
             ]
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['phone','name', 'email','konu', 'message']
+

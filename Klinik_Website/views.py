@@ -1,6 +1,7 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 
-from Klinik_Website.forms import RandevuForm
+from Klinik_Website.forms import RandevuForm, ContactForm
 from Klinik_Website.models import Menu, SliderImage, About, Services, ServicePage, ContactInfo, SosyalMedya, Explanation
 
 
@@ -41,19 +42,47 @@ def about(request):
     explanationtext = explanation_instance.text
     explanationimage = explanation_instance.image
     explanationcontent = explanation_instance.content
+    contact_instance = ContactInfo.objects.first()
+    contactemail = contact_instance.email
+    contactphone = contact_instance.phone
+    contactadress = contact_instance.address
     return render(request, 'about.html', {'explanationheader': explanationheader,
                                           'explanationtext': explanationtext, 'explanationimage': explanationimage,
-                                          'explanationcontent': explanationcontent})
+                                          'explanationcontent': explanationcontent,'contactemail': contactemail, 'contactphone': contactphone,
+                                         'contactadress': contactadress})
 
 
 def contact(request):
-    return None
+    contact_instance = ContactInfo.objects.first()
+    contactemail = contact_instance.email
+    contactphone = contact_instance.phone
+    contactadress = contact_instance.address
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            messages.success(request, 'Birisi sizinle iletişim kurmak istiyor.')
+        else:
+            messages.error(request, 'Form is not valid. Please check your inputs.')
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form, 'contactemail': contactemail, 'contactphone': contactphone,
+                                         'contactadress': contactadress})
 
 def service_page_detail(request, slug):
+    contact_instance = ContactInfo.objects.first()
+    contactemail = contact_instance.email
+    contactphone = contact_instance.phone
+    contactadress = contact_instance.address
     page = get_object_or_404(ServicePage, slug=slug)
-    return render(request, 'service_page_detail.html', {'page': page})
+    return render(request, 'service_page_detail.html', {'page': page,'contactemail': contactemail, 'contactphone': contactphone,
+                                         'contactadress': contactadress})
 
 def randevu_al(request):
+    contact_instance = ContactInfo.objects.first()
+    contactemail = contact_instance.email
+    contactphone = contact_instance.phone
+    contactadress = contact_instance.address
     if request.method == 'POST':
         form = RandevuForm(request.POST)
         if form.is_valid():
@@ -61,7 +90,8 @@ def randevu_al(request):
             return redirect('randevu_basarili')
     else:
         form = RandevuForm()
-    return render(request, 'randevu_al.html', {'form': form})
+    return render(request, 'randevu_al.html', {'form': form,'contactemail': contactemail, 'contactphone': contactphone,
+                                         'contactadress': contactadress})
 
 
 def randevu_basarili(request):
