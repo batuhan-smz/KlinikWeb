@@ -195,6 +195,7 @@ footer {
 
 .about-section {
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
     padding: 50px 20%;
@@ -273,10 +274,11 @@ footer {
     display: flex;
     width: 60%;
     height: 100%;
+    justify-content: center;
 }
 
 .slider {
-    width: 50%;
+    width: fit-content;
     height: 500px;
     overflow: hidden; /* Taşan görselleri gizle */
     position: relative;
@@ -310,12 +312,12 @@ footer {
 }
 
 .content {
-    width: 50%;
+    width: 500px;
     height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: url(https://st2.depositphotos.com/1001705/7807/v/450/depositphotos_78070296-stock-illustration-vector-square-simple-frame-for.jpg);
+    background: url(../images/slider-background.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
