@@ -103,7 +103,7 @@ nav ul li a:hover {
 nav ul li ul {
     display: none;
     position: absolute;
-    background-color: #a66b2e36;
+    background-color: #ffb467;
     border-radius: 5px;
     min-width: 160px;
     z-index: 1;
@@ -122,7 +122,8 @@ nav ul li:hover ul {
 }
 
 nav ul li ul li a:hover {
-    background-color: #555;
+    background-color: #c67d2b;
+    border-radius: 5px;
 }
 
 /* Mobil uyumluluk için hamburger menü stili */
@@ -134,81 +135,6 @@ nav ul li ul li a:hover {
     cursor: pointer;
         }
 
-@media only screen and (max-width: 768px) {
-    .nav-ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-        nav ul.open {
-        display: flex;
-        flex-direction: column;
-    }
-    nav ul li {
-        float: none;
-        text-align: center;
-    }
-    .hamburger, .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .nav-links {
-        width: 100%;
-        flex-direction: column; /* Menü öğelerini alt alta yerleştir */
-    }
-    .banner-content{
-        display: block;
-    }
-
-    .slider {
-        width: 80% !important;
-        height: 80% !important;
-        overflow: hidden; /* Taşan görselleri gizle */
-        position: relative;
-        object-fit: scale-down;
-        border: 15px solid #d9a00029;
-    }
-
-    .wrapper{
-        width: 100% !important;
-        align-items: center !important;
-        flex-direction: column;
-    }
-    .content{
-        width: 70% !important;
-        height: 100% !important;
-        margin: 2rem !important;
-        border: dashed;
-        border-color: #d9a00029;
-        background: none !important;
-    }
-    .banner-content{
-        align-items: center; !important;
-        flex-direction: column;
-    }
-    .banner-content-in{
-        width: 100% !important;
-    }
-    .services-list{
-        position: relative!important;
-        right: 20px !important;
-    }
-    .about-section{
-        padding: 0 !important;
-    }
-    .contact-in-info{
-        left: 0 !important;
-    }
-    .contact-content{
-        background-position: center!important;
-    }
-}
 .nav-links li{
     list-style: none;
     margin: 10px;
@@ -427,6 +353,10 @@ footer {
     margin-right: 10%;
 }
 
+.contact-in-info ul li {
+    font-family: math;
+}
+
 
 .services {
     display: flex;
@@ -446,12 +376,13 @@ footer {
     margin: 15px;
     overflow: hidden;
     width: 300px;
+    height: 400px;
     text-align: center;
 }
 
 .service-card img {
     width: 100%;
-    height: auto;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -476,6 +407,45 @@ footer {
     border-top: none;
 }
 
+.padding0{
+    padding: 0;
+}
+
+.explenation-container img {
+    object-fit: contain;
+    width: auto;
+    height: 500px;
+}
+.explenation-container{
+    display: flex;
+    gap: 3em;
+    justify-content: center;
+}
+.explenation-content-main{
+    width: 60%;
+    display: ruby;
+    padding: 2rem;
+    align-self: center;
+}
+.explenation-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 1em;
+
+}
+.exp{
+    display: flex;
+    flex-direction: column;
+}
+.explenation-content h1{
+    font-family: "Arizonia", Sans-serif;
+    font-size: 2rem;
+}
+.explenation-content p{
+    font-family: math;
+}
 .banner-background{
     width: 100%;
     height: 29%;
@@ -572,4 +542,117 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.service-page h1 {
+    position: relative;
+    text-align: center;
+    display: block;
+    font-family: math;
+    color: coral;
+    font-weight: bold;
+    padding: 0.5em;
+    border-top: double;
+    border-bottom: double;
+}
+
+.service-page img {
+    width: -webkit-fill-available;
+    padding: 0 20%;
+}
+
+.service-page p {
+    width: -webkit-fill-available;
+    padding: 0 23%;
+    font-family: system-ui;
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+        nav ul.open {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        float: none;
+        text-align: center;
+    }
+    nav ul li ul{
+        position: relative!important;
+    }
+    .hamburger, .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-links {
+        width: 100%;
+        flex-direction: column; /* Menü öğelerini alt alta yerleştir */
+    }
+    .banner-content{
+        display: block;
+    }
+
+    .slider {
+        width: 80% !important;
+        height: 80% !important;
+        overflow: hidden; /* Taşan görselleri gizle */
+        position: relative;
+        object-fit: scale-down;
+        border: 15px solid #d9a00029;
+    }
+
+    .wrapper{
+        width: 100% !important;
+        align-items: center !important;
+        flex-direction: column;
+    }
+    .content{
+        width: 70% !important;
+        height: 100% !important;
+        margin: 2rem !important;
+        border: dashed;
+        border-color: #d9a00029;
+        background: none !important;
+    }
+    .banner-content{
+        align-items: center; !important;
+        flex-direction: column;
+    }
+    .banner-content-in{
+        width: 100% !important;
+    }
+    .services-list{
+        position: relative!important;
+        right: 20px !important;
+    }
+    .about-section{
+        padding: 0 !important;
+    }
+    .contact-in-info{
+        left: 0 !important;
+    }
+    .contact-content{
+        background-position: center!important;
+    }
+    .service-page img {
+    width: -webkit-fill-available;
+    padding: 1rem;
+    }
+    .service-page p {
+    width: -webkit-fill-available;
+    padding: 2em;
+    border: 2px solid #ed6916;
+    margin: 0;
+}
 }
