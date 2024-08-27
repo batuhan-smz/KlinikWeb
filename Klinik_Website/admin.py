@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import SliderImage, DoctorInfo, ContactInfo, Explanation, Menu, About, Services, ServicePage, Randevu, CalismaSaati
+from .models import SliderImage, DoctorInfo, ContactInfo, Explanation, Menu, About, Services, ServicePage, Randevu, \
+    CalismaSaati, SosyalMedya
 
 admin.site.register(SliderImage)
 admin.site.register(DoctorInfo)
@@ -7,6 +8,7 @@ admin.site.register(ContactInfo)
 admin.site.register(Explanation)
 admin.site.register(Menu)
 admin.site.register(About)
+admin.site.register(SosyalMedya)
 admin.site.register(Services)
 @admin.register(ServicePage)
 class ServicePageAdmin(admin.ModelAdmin):

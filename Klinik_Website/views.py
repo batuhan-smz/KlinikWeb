@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 from Klinik_Website.forms import RandevuForm
-from Klinik_Website.models import Menu, SliderImage, About, Services, ServicePage, ContactInfo
+from Klinik_Website.models import Menu, SliderImage, About, Services, ServicePage, ContactInfo, SosyalMedya, Explanation
 
 
 # Create your views here.
@@ -21,16 +21,29 @@ def home(request):
     contactemail = contact_instance.email
     contactphone = contact_instance.phone
     contactadress = contact_instance.address
+    sosyalmedya_instance = SosyalMedya.objects.first()
+    sosyalmedya_instagram = sosyalmedya_instance.instagram
+    sosyalmedya_facebook = sosyalmedya_instance.facebook
+    sosyalmedya_youtube = sosyalmedya_instance.youtube
 
-    return render(request, 'home.html', {'services': services,'menü': menu, 'slider': slider ,
+    return render(request, 'home.html', {'services': services,'menü': menu, 'slider': slider,
                                          'sliderheader': sliderheader, 'slidercaption': slidercaption,
                                          'aboutimage': aboutimage,
                                          'aboutheader': aboutheader, 'aboutcaption': aboutcaption,
                                          'contactemail': contactemail, 'contactphone': contactphone,
-                                         'contactadress': contactadress,
+                                         'contactadress': contactadress, 'sosyalmedya_instagram': sosyalmedya_instagram,
+                                         'sosyalmedya_facebook': sosyalmedya_facebook,'sosyalmedya_youtube': sosyalmedya_youtube
+
                                          })
 def about(request):
-    return render(home(request),context=None)
+    explanation_instance: Explanation = Explanation.objects.first()
+    explanationheader = explanation_instance.header
+    explanationtext = explanation_instance.text
+    explanationimage = explanation_instance.image
+    explanationcontent = explanation_instance.content
+    return render(request, 'about.html', {'explanationheader': explanationheader,
+                                          'explanationtext': explanationtext, 'explanationimage': explanationimage,
+                                          'explanationcontent': explanationcontent})
 
 
 def contact(request):

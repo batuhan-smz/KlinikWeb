@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+    <div class="exp">
+    <div class="explenation-container">
+        <img src="{{ explanationimage.url }}">
+        <div class="explenation-content">
+            <h1>{{ explanationheader }}</h1>
+            <p>{{ explanationtext }}</p>
+        </div>
+    </div>
+    <div class="explenation-content-main">
+        {{ explanationcontent }}
+    </div>
+    </div>
+    </div>
+{% endblock %}

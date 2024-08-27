@@ -27,7 +27,7 @@
             <span class="hamburger" onclick="toggleMenu()">☰</span>
             <ul id="nav-links">
                 <li><a href="/">Anasayfa</a></li>
-                <li><a href="#about">Hakkımızda</a></li>
+                <li><a href="{% url 'about' %}">Hakkımızda</a></li>
                 <li>Hizmetler
                     <ul>
                         {% for page in service_pages %}
@@ -66,7 +66,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Klinik Adı. Tüm hakları saklıdır.</p>
+            <p>&copy; 2024 UR Clinic. Tüm hakları saklıdır.</p>
         </div>
     </footer>
     <script src="{% static 'js/script.js' %}"></script>
