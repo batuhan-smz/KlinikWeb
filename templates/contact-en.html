@@ -1,0 +1,75 @@
+{% extends 'layout-en.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-contact">
+    <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537363159042!3d-37.81720974202151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577ce2fd6c2e9a2!2sPlastic%20Surgeon!5e0!3m2!1sen!2str!4v1593323953123!5m2!1sen!2str"
+                width="600" height="450" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        </div>
+        <div class="contact-up">
+            <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Please contact us regarding the topics you would like to receive information or consult on.</p>
+            
+            <div class="info-box">
+                <h3>Contact Information</h3>
+                <p>{{ contactadress }}</p>
+                <p><a href="mailto:{{ contactemail }}">{{ contactemail }}</a></p>
+                <p><a href="tel:{{ contactphone }}">+9{{ contactphone }}</a></p>
+            </div>
+        </div>
+            <div class="contact-form">
+            <form action="{% url 'contact' %}" method="post">
+                {% csrf_token %}
+                <label for="name">Name Surname*</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="phone">Phone*</label>
+                <input type="tel" id="phone" name="phone" maxlength="11" required>
+                
+                <label for="email">E-mail*</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="konu">Subject*</label>
+                <input type="text" id="konu" name="konu" required>
+                
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+                
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-in">
+                    <div class="contact-in-header">
+                        <h2>Contact</h2>
+                    </div>
+                    <div class="contact-in-info">
+                        <ul class="padding0">
+                            <li>
+                                <span class="contact-icons"><img class="contact-icons" src="{% static 'images/mail-icon.png' %}"></span>
+                                <a class="anchor-logo" href="mailto:{{ contactemail }}"><span>{{ contactemail }}</span></a>
+                            </li>
+                            <li>
+                                <span class="contact-icons"><img class="contact-icons" src="{% static 'images/contact-icon.png' %}"></span>
+                                <a class="anchor-logo" href="tel:{{ contactphone }}"><span>{{ contactphone }}</span></a>
+                            </li>
+                            <li>
+                                <span class="contact-icons"><img class="contact-icons" src="{% static 'images/konum-icon.png' %}"></span>
+                                <span>{{ contactadress }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+{% endblock %}

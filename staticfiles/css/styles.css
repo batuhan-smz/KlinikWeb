@@ -103,7 +103,7 @@ nav ul li a:hover {
 nav ul li ul {
     display: none;
     position: absolute;
-    background-color: #ffb467;
+    background-color: #e5bc918c;
     border-radius: 5px;
     min-width: 160px;
     z-index: 1;
@@ -122,7 +122,7 @@ nav ul li:hover ul {
 }
 
 nav ul li ul li a:hover {
-    background-color: #c67d2b;
+    background-color: #e5bc91d9;
     border-radius: 5px;
 }
 
@@ -585,12 +585,13 @@ footer {
     background-size: cover;
     position: absolute;
     opacity: 0.17;
+    z-index: -1;
 }
 
 .form input {
-    background-color: antiquewhite;
     border-color: oldlace;
     border-radius: 5px;
+    margin: 5px;
 }
 
 .form select {
@@ -612,7 +613,6 @@ form.form {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    align-items: center;
 }
 
 .form p {

@@ -5,6 +5,8 @@ class SliderImage(models.Model):
     image = models.ImageField(upload_to='images/')
     header = models.CharField(max_length=50, blank=True)
     caption = models.CharField(max_length=200,blank=True)
+    caption_en = models.CharField(max_length=200,blank=True)
+
 
     def __str__(self):
         return f"{self.header} ({self.caption})"
@@ -13,7 +15,11 @@ class SliderImage(models.Model):
 class About(models.Model):
     image = models.ImageField(upload_to='images/')
     header = models.CharField(max_length=50, blank=True)
+
     caption = models.CharField(max_length=200, blank=True)
+    caption_en = models.CharField(max_length=200, blank=True)
+    def __str__(self):
+        return self.header
 
 
 class DoctorInfo(models.Model):
@@ -33,14 +39,16 @@ class ContactInfo(models.Model):
     address = models.TextField()
 
     def __str__(self):
-        return self.phone
+        return f"{self.phone} - {self.email}"
 
 
 class Explanation(models.Model):
     image = models.ImageField(upload_to='explanation_images/')
     header = models.CharField(max_length=50, blank=True)
-    text = models.TextField()
+    text = models.TextField(null=True, blank=True)
+    text_en = models.TextField(null=True, blank=True)
     content = models.TextField(null=True, blank=True)
+    content_en = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.text[:50]  # İlk 50 karakteri göster
@@ -63,37 +71,33 @@ class Randevu(models.Model):
     e_posta = models.EmailField(null=True, blank=True,default=None)
     tarih = models.DateTimeField()
     saat = models.TimeField()
+    basvuru_sebebi = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.tarih} - {self.saat}"
 
 
-class Menu(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=15)
-    url = models.CharField(max_length=100,default="#")
-    submenuname = models.CharField(max_length=15, blank=True, null=True)
-    submenuurl = models.CharField(max_length=100,default="#")
-    submenucontent = models.TextField(max_length=2000, blank=True, null=True)
-
-    def __str__(self):
-        return f"{self.name} ({self.url})"
-
 class Services(models.Model):
     id = models.AutoField(primary_key=True)
     image = models.ImageField(upload_to='images/',null=False)
     name = models.CharField(max_length=30, blank=True, null=True)
+    name_en = models.CharField(max_length=30, blank=True, null=True)
     url = models.CharField(max_length=100,default="#")
     content = models.TextField(max_length=500, blank=True, null=True)
+    content_en = models.TextField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return f"{self.name} ({self.url})"
 
 class ServicePage(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    title_en = models.CharField(max_length=200,default=title)
+    description = models.TextField(null=True, blank=True)
+    description_en = models.TextField(null=True, blank=True,default=description)
     image = models.ImageField(upload_to='service_images/')
     slug = models.SlugField(unique=True)
+
+
 
     def __str__(self):
         return self.title

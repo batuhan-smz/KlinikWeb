@@ -9,7 +9,7 @@ class RandevuForm(forms.ModelForm):
 
     class Meta:
         model = Randevu
-        fields = ['ad','soyad','telefon','e_posta', 'tarih', 'saat']
+        fields = ['ad','soyad','telefon','e_posta', 'tarih', 'saat', 'basvuru_sebebi']
         widgets = {
             'tarih': forms.DateInput(attrs={'type': 'date'}),
         }
