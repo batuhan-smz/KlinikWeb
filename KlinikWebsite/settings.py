@@ -70,14 +70,13 @@ WSGI_APPLICATION = 'KlinikWebsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldb',  # Veritabanı adınızı buraya yazın
-        'USER': 'default',   # PostgreSQL kullanıcı adınızı buraya yazın
-        'PASSWORD': 'uUbG2JvL6dOT',       # PostgreSQL kullanıcı şifrenizi buraya yazın
-        'HOST': 'ep-plain-violet-a4whfy4o.us-east-1.aws.neon.tech',       # Genellikle localhost'tur
-        'PORT': '5432',            # PostgreSQL'in varsayılan portu
+        'NAME': 'klinikdb',
+        'USER': 'postgres',
+        'PASSWORD': '7410',
+        'HOST': 'db',  # Docker Compose'taki veritabanı hizmet adı
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
