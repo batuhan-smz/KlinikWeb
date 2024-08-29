@@ -16,8 +16,8 @@ class About(models.Model):
     image = models.ImageField(upload_to='images/')
     header = models.CharField(max_length=50, blank=True)
 
-    caption = models.CharField(max_length=200, blank=True)
-    caption_en = models.CharField(max_length=200, blank=True)
+    caption = models.CharField(max_length=20000, blank=True)
+    caption_en = models.CharField(max_length=20000, blank=True)
     def __str__(self):
         return self.header
 
