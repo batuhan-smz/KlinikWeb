@@ -69,12 +69,12 @@ WSGI_APPLICATION = 'KlinikWebsite.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'klinikdb',
-        'USER': 'postgres',
-        'PASSWORD': '7410',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dru326rececomtr_clinicdb',  # Veritabanı adınızı buraya yazın
+        'USER': 'dru326rececomtr_ugur',   # PostgreSQL kullanıcı adınızı buraya yazın
+        'PASSWORD': 'Ugur1234.',       # PostgreSQL kullanıcı şifrenizi buraya yazın
+        'HOST': 'localhost',       # Genellikle localhost'tur
+        'PORT': '3306',            # PostgreSQL'in varsayılan portu
     }
 }
 
