@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost','*']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', '*']
 
 #SECURE_HSTS_SECONDS = 3600  # 1 saat
 #SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -71,9 +71,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'klinikdb',
-        'USER': 'postgres',
-        'PASSWORD': '7410',
-        'HOST': 'localhost',
+        'USER': 'default',
+        'PASSWORD': 'uUbG2JvL6dOT',
+        'HOST': 'ep-plain-violet-a4whfy4o-pooler.us-east-1.aws.neon.tech',
         'PORT': '5432',
     }
 }
